@@ -41,6 +41,8 @@ namespace MapaSalaMiguel.formularios
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProfessor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +101,7 @@ namespace MapaSalaMiguel.formularios
             // 
             this.dtGridProfessor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridProfessor.Location = new System.Drawing.Point(380, 134);
+            this.dtGridProfessor.Location = new System.Drawing.Point(400, 134);
             this.dtGridProfessor.Name = "dtGridProfessor";
             this.dtGridProfessor.RowTemplate.Height = 25;
             this.dtGridProfessor.Size = new System.Drawing.Size(315, 215);
@@ -156,11 +158,30 @@ namespace MapaSalaMiguel.formularios
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(299, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Pesquisa";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(400, 78);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(263, 20);
+            this.txtPesquisa.TabIndex = 47;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // FrmProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtPesquisa);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
@@ -196,5 +217,7 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPesquisa;
     }
 }

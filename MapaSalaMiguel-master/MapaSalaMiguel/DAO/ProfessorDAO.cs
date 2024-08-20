@@ -53,14 +53,51 @@ namespace MapaSala.DAO
                     professores.Nome = leitura[1].ToString();
                     professores.Apelido = leitura[2].ToString();
                     dt.Rows.Add(professores.Linha());
-
+                    Conexao.Close();
                     return dt;
+
                 }
             }
             return new DataTable();
 
         }
+        public DataTable Pesquisar(string pesquisa)
+        {
 
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            string query = "";
+            if (string.IsNullOrEmpty(pesquisa))
+            {
+                query = "Select From Professores Order BY Id desc";
+            }
+            else
+            {
+                query = "Select From Professores Where Nome like'%"+pesquisa+"%' Order BY Id desc";//novo
+            }
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+            comando.ExecuteReader();
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    ProfessoresEntidade professores = new ProfessoresEntidade();
+                    professores.Id = Convert.ToInt32(leitura[0]);
+                    professores.Nome = leitura[1].ToString();
+                    professores.Apelido = leitura[2].ToString();
+                    dt.Rows.Add(professores.Linha());
+                    Conexao.Close();
+                    return dt;
+                }
+            }
+            return new DataTable();
+        }
 
 
 
