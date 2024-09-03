@@ -1,0 +1,6 @@
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\bin\Debug\model.dll
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\bin\Debug\model.pdb
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\obj\Debug\model.csproj.AssemblyReference.cache
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\obj\Debug\model.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\obj\Debug\model.dll
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\model\obj\Debug\model.pdb

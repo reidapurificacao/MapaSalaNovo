@@ -1,0 +1,11 @@
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.csproj.AssemblyReference.cache
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.FormPrincipal.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.formularios.FrmAlunos.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.formularios.FrmCursos.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.formularios.FrmDisciplina.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.formularios.FrmProfessor.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSala.Formularios.frmSalas.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.formularios.FrmUsuarios.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.Properties.Resources.resources
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.csproj.GenerateResource.cache
+C:\Users\Aluno\Source\Repos\reidapurificacao\MapaSalaNovo\MapaSalaMiguel-master\MapaSalaMiguel\obj\Debug\MapaSalaMiguel.csproj.CoreCompileInputs.cache

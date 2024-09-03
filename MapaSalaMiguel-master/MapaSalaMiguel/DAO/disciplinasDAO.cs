@@ -1,101 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using model.entidades;
-using System.Data;
+using Model.Entitidades;
 
 namespace MapaSala.DAO
 {
-    public class disciplinasDAO
+    public class DisciplinaDAO
     {
-        // "LS05MPF" servidor em rede; "Localhost" próprio PC
         private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
         private SqlConnection Conexao;
-        public disciplinasDAO()
+        public DisciplinaDAO()
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
 
-        public void Inserir(DisciplinasEntidade disciplina)
+        public void Inserir(DisciplinaEntidade disciplina)
         {
             Conexao.Open();
-            string query = "Insert into Disciplinas (Nome, ID) Values (@nome,@ID)";
+            string query = "Insert into Disciplinas (Nome , Sigla) Values (@nome, @sigla) ";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            SqlParameter parametro1 = new SqlParameter("@nome", disciplina.nome);
-            SqlParameter parametro2 = new SqlParameter("@ID", disciplina.ID);
-            SqlParameter parametro3 = new SqlParameter("@sigla", disciplina.sigla);
-            SqlParameter parametro4 = new SqlParameter("@ativo", disciplina.ativo);
+
+            SqlParameter parametro1 = new SqlParameter("@nome", disciplina.Nome);
+            SqlParameter parametro2 = new SqlParameter("@sigla", disciplina.Sigla);
             comando.Parameters.Add(parametro1);
             comando.Parameters.Add(parametro2);
-            comando.Parameters.Add(parametro3);
-            comando.Parameters.Add(parametro4);
 
-            /*public int ID { get; set; }
-        public string nome { get; set; }
-        public string sigla { get; set; }
-        public bool ativo { get; set; }*/
             comando.ExecuteNonQuery();
             Conexao.Close();
+
         }
-        public DataTable obterDisciplina()
+
+
+
+        public DataTable PreencherComboBox()
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = "SELECT Id, Nome FROM Disciplinas";
+
+            using (SqlConnection connection = new SqlConnection(LinhaConexao))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+
+                try
+                {
+                    // Preenche o DataTable com os dados da consulta
+                    adapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    // Lida com erros, se necessário
+                    throw new Exception("Erro ao acessar os dados: " + ex.Message);
+                }
+            }
+
+            return dataTable;
+        }
+
+
+
+        public DataTable ObterDisciplinas()
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Disciplinas Order BY Id desc";
+            string query = "SELECT Id, Nome, Sigla FROM Disciplinas Order by Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.ExecuteReader();
-            SqlDataReader leitura = comando.ExecuteReader();
-            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())
+
+            SqlDataReader Leitura = comando.ExecuteReader();
+
+            foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
             {
                 dt.Columns.Add(atributos.Name);
             }
-            if (leitura.HasRows)
-            {
-                while (leitura.Read())
-                {
-                    DisciplinasEntidade disciplinas = new DisciplinasEntidade();
-                    disciplinas.ID = Convert.ToInt32(leitura[0]);
-                    disciplinas.nome = leitura[1].ToString();
-                    disciplinas.sigla = leitura[2].ToString();
-                    disciplinas.ativo = Convert.ToBoolean(leitura[3]);
-                    dt.Rows.Add(disciplinas.Linha());
 
-                    return dt;
+            if (Leitura.HasRows)
+            {
+                while (Leitura.Read())
+                {
+                    ProfessoresEntidade p = new ProfessoresEntidade();
+                    p.Id = Convert.ToInt32(Leitura[0]);
+                    p.Nome = Leitura[1].ToString();
+                    p.Apelido = Leitura[2].ToString();
+                    dt.Rows.Add(p.Linha());
                 }
             }
-            return new DataTable();
-
-        }
-
-
-
-
-    }
-}
-/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace model.entidades
-{
-    public class DisciplinasEntidade
-    {
-        public int ID { get; set; }
-        public string nome { get; set; }
-        public string sigla { get; set; }
-        public bool ativo { get; set; }
-        public Object[] Linha()
-        {
-            return new object[] { ID, nome, sigla, ativo };
+            Conexao.Close();
+            return dt;
         }
     }
 }
-*/
-
-
